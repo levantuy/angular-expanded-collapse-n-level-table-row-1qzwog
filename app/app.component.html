@@ -1,0 +1,19 @@
+<recursive-component [item]="{ subtasks: sampleData }"></recursive-component>
+<table>
+  <tbody>
+    <ng-container *ngFor="let item of items; index as i">
+      <tr>
+        <th>No</th>
+        <th *ngFor="let title of item.titles">
+          {{ title }}
+        </th>
+      </tr>
+      <tr (click)="expanded(item)">
+        <td [style.padding-left]="item.index * 20 + 'px'">{{ i }}</td>
+        <td *ngFor="let title of item.titles">
+          {{ item[title] }}
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
